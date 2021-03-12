@@ -110,6 +110,7 @@ const DatePicker = ({
 
   const handleCalendarChange = newValue => {
     const valueType = getValueType(value);
+    console.log(newValue);
     onChange(newValue);
     if (valueType === TYPE_SINGLE_DATE) setCalendarVisiblity(false);
     else if (valueType === TYPE_RANGE && newValue.from && newValue.to) setCalendarVisiblity(false);

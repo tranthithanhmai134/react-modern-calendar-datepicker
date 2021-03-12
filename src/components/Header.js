@@ -107,12 +107,22 @@ const Header = ({
     const isMonthChanging = Array.from(monthYearWrapperElement.current.children).some(child =>
       child.classList.contains('-shownAnimated'),
     );
+    console.log(
+      'direction: ',
+      direction,
+      getMonthYearText(isMonthChanging),
+      getMonthName(activeDate.month),
+    );
+
     if (isMonthChanging) return;
+    getMonthYearText(isMonthChanging);
+    getMonthName(activeDate.month);
     onMonthChange(direction);
   };
 
   // first button text is the one who shows the current month and year(initial active child)
   const monthYearButtons = [true, false].map(isInitialActiveChild => {
+    console.log('isInitialActiveChild:', isInitialActiveChild);
     const { month, year } = getMonthYearText(isInitialActiveChild);
     const isActiveMonth = month === getMonthName(activeDate.month);
     const hiddenStatus = {
